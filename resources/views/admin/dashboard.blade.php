@@ -3,54 +3,54 @@
 @section('page-title', 'Dashboard')
 
 @section('content')
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-    <div class="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-blue-500">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+    <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-blue-500">
         <div class="flex justify-between items-center">
             <div>
-                <p class="text-gray-500 text-sm">Total Berita</p>
-                <p class="text-3xl font-bold text-gray-800 mt-1">{{ $totalBerita }}</p>
+                <p class="text-gray-500 text-xs">Total Berita</p>
+                <p class="text-2xl font-bold text-gray-800 mt-1">{{ $totalBerita }}</p>
             </div>
-            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                <i class="fas fa-newspaper text-blue-600 text-xl"></i>
+            <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-newspaper text-blue-600 text-base"></i>
             </div>
         </div>
-        <a href="{{ route('admin.berita.index') }}" class="text-blue-600 text-xs mt-3 inline-block hover:underline">Kelola Berita →</a>
+        <a href="{{ route('admin.berita.index') }}" class="text-blue-600 text-xs mt-2 inline-block hover:underline">Kelola Berita →</a>
     </div>
-    <div class="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-yellow-500">
+    <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-yellow-500">
         <div class="flex justify-between items-center">
             <div>
-                <p class="text-gray-500 text-sm">Total Guru</p>
-                <p class="text-3xl font-bold text-gray-800 mt-1">{{ $totalGuru }}</p>
+                <p class="text-gray-500 text-xs">Total Guru</p>
+                <p class="text-2xl font-bold text-gray-800 mt-1">{{ $totalGuru }}</p>
             </div>
-            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
-                <i class="fas fa-chalkboard-teacher text-yellow-600 text-xl"></i>
+            <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-chalkboard-teacher text-yellow-600 text-base"></i>
             </div>
         </div>
-        <a href="{{ route('admin.guru.index') }}" class="text-yellow-600 text-xs mt-3 inline-block hover:underline">Kelola Guru →</a>
+        <a href="{{ route('admin.guru.index') }}" class="text-yellow-600 text-xs mt-2 inline-block hover:underline">Kelola Guru →</a>
     </div>
-    <div class="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-green-500">
+    <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-green-500">
         <div class="flex justify-between items-center">
             <div>
-                <p class="text-gray-500 text-sm">Total Sarana</p>
-                <p class="text-3xl font-bold text-gray-800 mt-1">{{ $totalSarana }}</p>
+                <p class="text-gray-500 text-xs">Total Sarana</p>
+                <p class="text-2xl font-bold text-gray-800 mt-1">{{ $totalSarana }}</p>
             </div>
-            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                <i class="fas fa-school text-green-600 text-xl"></i>
+            <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-school text-green-600 text-base"></i>
             </div>
         </div>
-        <a href="{{ route('admin.sarana.index') }}" class="text-green-600 text-xs mt-3 inline-block hover:underline">Kelola Sarana →</a>
+        <a href="{{ route('admin.sarana.index') }}" class="text-green-600 text-xs mt-2 inline-block hover:underline">Kelola Sarana →</a>
     </div>
-    <div class="bg-white rounded-2xl p-6 shadow-sm border-l-4 border-purple-500">
+    <div class="bg-white rounded-xl p-4 shadow-sm border-l-4 border-purple-500">
         <div class="flex justify-between items-center">
             <div>
-                <p class="text-gray-500 text-sm">Total Galeri</p>
-                <p class="text-3xl font-bold text-gray-800 mt-1">{{ $totalGaleri }}</p>
+                <p class="text-gray-500 text-xs">Total Galeri</p>
+                <p class="text-2xl font-bold text-gray-800 mt-1">{{ $totalGaleri }}</p>
             </div>
-            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                <i class="fas fa-images text-purple-600 text-xl"></i>
+            <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                <i class="fas fa-images text-purple-600 text-base"></i>
             </div>
         </div>
-        <a href="{{ route('admin.galeri.index') }}" class="text-purple-600 text-xs mt-3 inline-block hover:underline">Kelola Galeri →</a>
+        <a href="{{ route('admin.galeri.index') }}" class="text-purple-600 text-xs mt-2 inline-block hover:underline">Kelola Galeri →</a>
     </div>
 </div>
 

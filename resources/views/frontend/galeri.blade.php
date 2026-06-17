@@ -75,14 +75,14 @@
 
 @section('content')
 
-<div class="bg-blue-700 py-16">
+<div class="bg-blue-700 py-10">
     <div class="max-w-7xl mx-auto px-4 text-center">
-        <h1 class="text-4xl font-bold text-white" data-aos="fade-up">Galeri Foto</h1>
-        <p class="text-blue-200 mt-2">Dokumentasi kegiatan SDN Sindangmulya 04</p>
+        <h1 class="text-2xl font-bold text-white" data-aos="fade-up">Galeri Foto</h1>
+        <p class="text-blue-200 mt-1 text-sm">Dokumentasi kegiatan SDN Sindangmulya 04</p>
     </div>
 </div>
 
-<section class="py-16 bg-gray-50">
+<section class="py-10 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4">
 
         @if($galeris->count() > 0)
@@ -99,20 +99,20 @@
         @endif
 
         {{-- Grid Galeri --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8" id="galeri-grid">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="galeri-grid">
             @foreach($galeris as $foto)
-            <div class="galeri-item shadow-md bg-white rounded-2xl overflow-hidden card-hover" data-kategori="{{ $foto->kategori }}" data-aos="fade-up"
+            <div class="galeri-item shadow-md bg-white rounded-xl overflow-hidden card-hover" data-kategori="{{ $foto->kategori }}" data-aos="fade-up"
                  onclick="openLightbox('{{ asset('storage/' . $foto->gambar) }}', '{{ $foto->judul }}', '{{ $foto->deskripsi }}')">
-                <div class="h-80 overflow-hidden">
+                <div class="h-52 overflow-hidden">
                     <img src="{{ asset('storage/' . $foto->gambar) }}" alt="{{ $foto->judul }}" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition duration-300 cursor-pointer">
                 </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-gray-800 text-xl mb-2">{{ $foto->judul }}</h3>
+                <div class="p-4">
+                    <h3 class="font-bold text-gray-800 text-sm mb-1">{{ $foto->judul }}</h3>
                     @if($foto->deskripsi)
-                    <p class="text-gray-500 text-base leading-relaxed text-justify">{{ $foto->deskripsi }}</p>
+                    <p class="text-gray-500 text-xs leading-relaxed text-justify">{{ $foto->deskripsi }}</p>
                     @endif
-                    <div class="mt-3">
-                        <span class="bg-blue-100 text-blue-700 text-sm font-semibold px-3 py-1 rounded-full">{{ ucfirst($foto->kategori) }}</span>
+                    <div class="mt-2">
+                        <span class="bg-blue-100 text-blue-700 text-xs font-semibold px-2 py-0.5 rounded-full">{{ ucfirst($foto->kategori) }}</span>
                     </div>
                 </div>
             </div>

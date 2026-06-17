@@ -77,34 +77,34 @@
 
 @section('content')
 
-<div class="bg-blue-700 py-16">
+<div class="bg-blue-700 py-10">
     <div class="max-w-7xl mx-auto px-4 text-center">
-        <h1 class="text-4xl font-bold text-white" data-aos="fade-up">Tenaga Pendidik</h1>
-        <p class="text-blue-200 mt-2">SDN Sindangmulya 04 Kabupaten Bekasi</p>
+        <h1 class="text-2xl font-bold text-white" data-aos="fade-up">Tenaga Pendidik</h1>
+        <p class="text-blue-200 mt-1 text-sm">SDN Sindangmulya 04 Kabupaten Bekasi</p>
     </div>
 </div>
 
-<section class="py-16 bg-gray-50">
+<section class="py-10 bg-gray-50">
     <div class="max-w-5xl mx-auto px-4">
 
         {{-- KEPALA SEKOLAH --}}
         @if($kepala)
-        <div class="flex justify-center mb-14" data-aos="fade-up">
-            <div class="bg-white rounded-2xl shadow-lg p-8 text-center w-72">
-                <div class="w-36 h-36 rounded-full overflow-hidden mx-auto mb-4 border-4 border-blue-200 shadow-md">
+        <div class="flex justify-center mb-8" data-aos="fade-up">
+            <div class="bg-white rounded-2xl shadow-lg p-5 text-center w-56">
+                <div class="w-24 h-24 rounded-full overflow-hidden mx-auto mb-3 border-4 border-blue-200 shadow-md">
                     @if($kepala->foto)
                         <img src="{{ asset('storage/' . $kepala->foto) }}" alt="{{ $kepala->nama }}" class="w-full h-full object-cover object-top">
                     @else
                         <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-200">
-                            <i class="fas fa-user-tie text-5xl text-blue-300"></i>
+                            <i class="fas fa-user-tie text-4xl text-blue-300"></i>
                         </div>
                     @endif
                 </div>
-                <h3 class="text-xl font-bold text-gray-800">{{ $kepala->nama }}</h3>
+                <h3 class="text-base font-bold text-gray-800">{{ $kepala->nama }}</h3>
                 @if($kepala->nip)
                 <p class="text-gray-400 text-xs mt-1">NIP. {{ $kepala->nip }}</p>
                 @endif
-                <span class="inline-block mt-3 text-blue-700 font-semibold text-sm">Kepala Sekolah</span>
+                <span class="inline-block mt-2 text-blue-700 font-semibold text-xs">Kepala Sekolah</span>
             </div>
         </div>
         @endif
@@ -145,15 +145,15 @@
 
             {{-- WALI KELAS & GURU MAPEL --}}
             <div class="md:col-span-{{ $staf->count() > 0 ? '2' : '3' }}" data-aos="fade-left">
-                <div class="bg-gray-800 text-white text-center font-semibold py-4 rounded-t-xl flex items-center justify-center space-x-2 text-base">
+                <div class="bg-gray-800 text-white text-center font-semibold py-2 rounded-t-xl flex items-center justify-center space-x-2 text-xs">
                     <i class="fas fa-chalkboard-teacher"></i>
                     <span>Daftar Wali Kelas & Guru Mata Pelajaran</span>
                 </div>
-                <div class="bg-white rounded-b-xl shadow-md overflow-y-auto overflow-x-visible" style="max-height: 420px;">
+                <div class="bg-white rounded-b-xl shadow-md overflow-x-visible">
                     @if($wali->count() > 0 || $mapel->count() > 0)
                     <div class="divide-y divide-gray-100">
                         @foreach($list as $g)
-                        <div class="guru-item px-5 py-4 hover:bg-blue-50 transition">
+                        <div class="guru-item px-3 py-2.5 hover:bg-blue-50 transition">
                             <div class="guru-card-hover">
                                 <div class="foto-wrap">
                                     @if($g->foto)
@@ -167,19 +167,19 @@
                                     <span>{{ $g->jabatan }}</span>
                                 </div>
                             </div>
-                            <div class="flex items-center space-x-3 cursor-default">
-                                <i class="fas fa-user-circle text-blue-400 text-xl"></i>
+                            <div class="flex items-center space-x-2 cursor-default">
+                                <i class="fas fa-user-circle text-blue-400 text-base"></i>
                                 <div>
-                                    <p class="text-base font-semibold text-gray-800">{{ $g->nama }}</p>
-                                    <p class="text-sm text-gray-400">{{ $g->jabatan }}</p>
+                                    <p class="text-xs font-semibold text-gray-800">{{ $g->nama }}</p>
+                                    <p class="text-xs text-gray-400">{{ $g->jabatan }}</p>
                                 </div>
                             </div>
                         </div>
                         @endforeach
                     </div>
                     @else
-                    <div class="text-center py-10 text-gray-400">
-                        <i class="fas fa-users text-4xl mb-2"></i>
+                    <div class="text-center py-8 text-gray-400 text-sm">
+                        <i class="fas fa-users text-3xl mb-2"></i>
                         <p>Data guru belum tersedia</p>
                     </div>
                     @endif

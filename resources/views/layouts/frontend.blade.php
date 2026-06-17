@@ -27,13 +27,13 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
-        body { font-family: 'Poppins', sans-serif; }
+        body { font-family: 'Poppins', sans-serif; font-size: 14px; }
         .hero-overlay { background: linear-gradient(135deg, rgba(26,86,219,0.85) 0%, rgba(26,86,219,0.6) 100%); }
         .nav-link { transition: all 0.3s ease; }
         .nav-link:hover { color: #f59e0b; }
         .nav-link.active { color: #f59e0b; border-bottom: 2px solid #f59e0b; }
         .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.1); }
         .guru-card img { transition: transform 0.3s ease; }
         .guru-card:hover img { transform: scale(1.05); }
     </style>
@@ -44,25 +44,25 @@
     <!-- Navbar -->
     <nav class="bg-blue-600 shadow-lg sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-24">
+            <div class="flex justify-between items-center h-16">
                 <!-- Logo & Nama -->
                 <a href="{{ route('home') }}" class="flex items-center space-x-3">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Sindangmulya 04" class="h-14 w-14 object-contain">
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo SDN Sindangmulya 04" class="h-10 w-10 object-contain">
                     <div class="text-white">
-                        <div class="font-bold text-sm md:text-base leading-tight">SDN SINDANGMULYA 04</div>
-                        <div class="text-xs md:text-sm text-blue-200">Cibarusah</div>
+                        <div class="font-bold text-sm leading-tight">SDN SINDANGMULYA 04</div>
+                        <div class="text-xs text-blue-200">Cibarusah</div>
                     </div>
                 </a>
 
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-1">
-                    <a href="{{ route('home') }}" class="nav-link text-white px-4 py-2 text-lg font-medium {{ request()->routeIs('home') ? 'active' : '' }}">Beranda</a>
-                    <a href="{{ route('profil') }}" class="nav-link text-white px-4 py-2 text-lg font-medium {{ request()->routeIs('profil') ? 'active' : '' }}">Profil</a>
-                    <a href="{{ route('guru') }}" class="nav-link text-white px-4 py-2 text-lg font-medium {{ request()->routeIs('guru') ? 'active' : '' }}">Guru</a>
-                    <a href="{{ route('sarana') }}" class="nav-link text-white px-4 py-2 text-lg font-medium {{ request()->routeIs('sarana') ? 'active' : '' }}">Sarana & Prasarana</a>
-                    <a href="{{ route('berita') }}" class="nav-link text-white px-4 py-2 text-lg font-medium {{ request()->routeIs('berita*') ? 'active' : '' }}">Berita</a>
-                    <a href="{{ route('galeri') }}" class="nav-link text-white px-4 py-2 text-lg font-medium {{ request()->routeIs('galeri') ? 'active' : '' }}">Galeri</a>
-                    <a href="{{ route('kontak') }}" class="nav-link text-white px-4 py-2 text-lg font-medium {{ request()->routeIs('kontak') ? 'active' : '' }}">Kontak</a>
+                    <a href="{{ route('home') }}" class="nav-link text-white px-3 py-2 text-sm font-medium {{ request()->routeIs('home') ? 'active' : '' }}">Beranda</a>
+                    <a href="{{ route('profil') }}" class="nav-link text-white px-3 py-2 text-sm font-medium {{ request()->routeIs('profil') ? 'active' : '' }}">Profil</a>
+                    <a href="{{ route('guru') }}" class="nav-link text-white px-3 py-2 text-sm font-medium {{ request()->routeIs('guru') ? 'active' : '' }}">Guru</a>
+                    <a href="{{ route('sarana') }}" class="nav-link text-white px-3 py-2 text-sm font-medium {{ request()->routeIs('sarana') ? 'active' : '' }}">Sarana & Prasarana</a>
+                    <a href="{{ route('berita') }}" class="nav-link text-white px-3 py-2 text-sm font-medium {{ request()->routeIs('berita*') ? 'active' : '' }}">Berita</a>
+                    <a href="{{ route('galeri') }}" class="nav-link text-white px-3 py-2 text-sm font-medium {{ request()->routeIs('galeri') ? 'active' : '' }}">Galeri</a>
+                    <a href="{{ route('kontak') }}" class="nav-link text-white px-3 py-2 text-sm font-medium {{ request()->routeIs('kontak') ? 'active' : '' }}">Kontak</a>
                 </div>
 
                 <!-- Mobile menu button -->
@@ -153,5 +153,28 @@
         });
     </script>
     @stack('scripts')
+
+{{-- Global Lightbox --}}
+<div id="global-lightbox" onclick="closeGlobalLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;flex-direction:column;padding:20px;">
+    <span onclick="closeGlobalLightbox()" style="position:absolute;top:20px;right:24px;color:white;font-size:32px;cursor:pointer;opacity:0.8;line-height:1;">&times;</span>
+    <img id="global-lightbox-img" src="" alt="" style="max-width:90vw;max-height:85vh;object-fit:contain;border-radius:12px;box-shadow:0 25px 80px rgba(0,0,0,0.5);">
+    <div id="global-lightbox-caption" style="color:white;margin-top:10px;font-size:13px;text-align:center;opacity:0.85;"></div>
+</div>
+<script>
+function openGlobalLightbox(src, caption) {
+    var lb = document.getElementById('global-lightbox');
+    document.getElementById('global-lightbox-img').src = src;
+    document.getElementById('global-lightbox-caption').innerText = caption || '';
+    lb.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+function closeGlobalLightbox() {
+    document.getElementById('global-lightbox').style.display = 'none';
+    document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeGlobalLightbox();
+});
+</script>
 </body>
 </html>

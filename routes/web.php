@@ -37,7 +37,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('guru', GuruController::class);
-        Route::resource('berita', BeritaController::class);
+        Route::resource('berita', BeritaController::class)->parameters(['berita' => 'berita']);
         Route::resource('sarana', SaranaController::class);
         Route::resource('galeri', GaleriController::class);
 

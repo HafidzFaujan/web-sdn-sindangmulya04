@@ -29,18 +29,20 @@ class AuthController extends Controller
         $request->validate([
             'email'              => 'required|email',
             'password'           => 'required',
-            'g-recaptcha-response' => 'required',
+            'g-recaptcha-response' => app()->environment('production') ? 'required' : 'nullable',
         ]);
 
-        // Verifikasi reCAPTCHA
-        $recaptcha = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret'   => config('services.recaptcha.secret_key'),
-            'response' => $request->input('g-recaptcha-response'),
-            'remoteip' => $request->ip(),
-        ]);
+        // Verifikasi reCAPTCHA (skip di local/testing)
+        if (app()->environment('production')) {
+            $recaptcha = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
+                'secret'   => config('services.recaptcha.secret_key'),
+                'response' => $request->input('g-recaptcha-response'),
+                'remoteip' => $request->ip(),
+            ]);
 
-        if (!$recaptcha->json('success')) {
-            return back()->withErrors(['recaptcha' => 'Verifikasi reCAPTCHA gagal. Silakan coba lagi.'])->withInput();
+            if (!$recaptcha->json('success')) {
+                return back()->withErrors(['recaptcha' => 'Verifikasi reCAPTCHA gagal. Silakan coba lagi.'])->withInput();
+            }
         }
 
         $user = User::where('email', $request->email)->first();
