@@ -50,10 +50,7 @@
                     placeholder="********">
             </div>
         </div>
-        <div class="flex items-center">
-            <input type="checkbox" name="remember" id="remember" class="mr-3">
-            <label for="remember" class="text-sm text-gray-700">Ingat saya</label>
-        </div>
+
 
         {{-- reCAPTCHA --}}
         <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}"></div>

@@ -21,7 +21,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="https://i.imgur.com/placeholder.png" alt="Logo" style="width:70px;height:70px;object-fit:contain;margin-bottom:12px;" onerror="this.style.display='none'">
+
             <h1>SDN Sindangmulya 04</h1>
             <p>Kabupaten Bekasi</p>
         </div>
